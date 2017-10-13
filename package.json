@@ -14,5 +14,8 @@
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.5",
     "mysql": "^2.10.2"
-  }
+  },
+       "scripts": {
+       "start": "node server.js"
+     }
 }
