@@ -1,0 +1,29 @@
+h1, h2, #list {
+	text-align: center;
+};
+h2 {
+	color: #8CC63E;
+}
+img {
+	margin: 10px;
+}
+.container {
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.change-devour {
+	float: right;
+}
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 75px;
+}
+.btn {
+	width: 100%;
+}
+body {
+
+}

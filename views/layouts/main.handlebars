@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
+		<title>Eat-Da-Burger</title>
+		<script src="https://code.jquery.com/jquery.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+  <style type="text/css">
+  	body {
+  		background-color: #FFD544;
+  	}
+  </style>
+	</head>
+	<body>
+		{{{ body }}}
+	</body>
+<script type="text/javascript">
+	// Make sure we wait to attach our handlers until the DOM is fully loaded.
+$(function() {
+  $(".change-devour").on("click", function(event) {
+    var id = $(this).data("id");
+    var newDevour = $(this).data("newdevour");
+
+    var newDevoured = {
+      devoured: newDevour
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: newDevoured
+    }).then(
+      function() {
+        console.log("changed devoured to", newDevour);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  $(".create-form").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newBurger = {
+      burger_name: $("#bg").val().trim()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function() {
+        console.log("created burger");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+});
+
+</script>
+</html>
