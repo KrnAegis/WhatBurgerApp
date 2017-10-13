@@ -14,6 +14,16 @@ app.get("/", function(req, res) {
   });
 });
 
+app.get("/api/burgers", function(req, res) {
+  burger.selcAll(function(data) {
+    var allBurgs = {
+      burgers: data
+    };
+    console.log(allBurgs);
+    res.json(data);
+  });
+});
+
 app.post("/api/burgers", function(req, res) {
   burger.createBurg([
     "burger_name", "devoured"
