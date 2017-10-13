@@ -2,9 +2,9 @@ var express = require("express");
 
 var burger = require("../models/burger.js");
 
-var router = express.Router();
+var app = express();
 
-router.get("/", function(req, res) {
+app.get("/", function(req, res) {
   burger.selcAll(function(data) {
     var allBurgs = {
       burgers: data
@@ -14,7 +14,7 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/api/burgers", function(req, res) {
+app.post("/api/burgers", function(req, res) {
   burger.createBurg([
     "burger_name", "devoured"
   ], [
@@ -25,7 +25,7 @@ router.post("/api/burgers", function(req, res) {
   });
 });
 
-router.put("/api/burgers/:id", function(req, res) {
+app.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
@@ -43,4 +43,4 @@ router.put("/api/burgers/:id", function(req, res) {
 });
 
 //being exported to server.js
-module.exports = router;
+module.exports = app;
