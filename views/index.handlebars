@@ -1,12 +1,10 @@
-
+<nav class="navbar navbar-light" >
+ <span class="navbar-brand mx-auto"><h1>Create your burger!</h1></span>
+</nav>
 <div class="container">
-  <div class="page-header">
-   <h1>Create your burger!</h1>
-  </div>
-
   <div class="row">
     <div id="list" class="col-sm-4">
-      <h2>You can eat these!</h2>
+      <h2>Ready to eat!</h2>
         <ol>
           {{#each burgers}}
             {{#unless devoured}}
@@ -16,10 +14,17 @@
         </ol>
     </div>
     <div id="list" class="col-sm-4">
-      <img src="http://bsnscb.com/data/out/29/27069577-burger-wallpapers.png" alt="Burger here" style="width:100%;height:250px;">
+      <h2>Add your burger!</h2>
+      <br></br>
+          <form class="create-form">
+            <div class="form-group">
+              <textarea type="text" id="bg" name="name" placeholder="What do you want in your burger?"></textarea>
+            </div>
+            <button class="btn btn-success" type="submit">Add Burger!</button>
+          </form>
     </div>
     <div id="list" class="col-sm-4">
-       <h2>You ate these already!</h2>
+       <h2>Devoured!</h2>
         <ol>
           {{#each burgers}}
             {{#if devoured}}
@@ -29,13 +34,7 @@
         </ol>
     </div>
   </div>
-      <h2>Add your burger!</h2>
-      <div class="col-sm-4 col-sm-offset-4">
-      <form class="create-form">
-        <div class="form-group">
-          <textarea type="text" id="bg" name="name" placeholder="What do you want in your burger?"></textarea>
-        </div>
-        <button class="btn btn-success" type="submit">Add Burger!</button>
-      </form>
-      </div>
+</div>
+<div class="card bg-dark text-black fixed-bottom">
+    <h5 class="mx-auto">Copyright© 2018 Hyung</h5>
 </div>

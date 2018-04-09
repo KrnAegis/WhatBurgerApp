@@ -1,12 +1,26 @@
-<li>
-	<div class="well">
-		{{burger_name}}
-
+<li class="list-group-item">
 		{{#if devour}}
-		<button class="change-devour" data-id="{{id}}" data-newdevour="{{devour}}">
-			Devour it!
-		</button>
-	{{/if}}
-	</div>
+			<div class="well">
+				<div class="row">
+					<div class="col-sm-8 text-justify vertCenter">
+						{{burger_name}}
+					</div>
+					<button class="change-devour btn btn-success col-sm-4" data-id="{{id}}" data-newdevour="{{devour}}">
+						Devour it!
+					</button>
+				</div>
+			</div>
+		{{else}}
+			<div class="well">
+				<div class="row">
+					<div class="col-sm-8 align-middle text-justify vertCenter">
+						{{burger_name}}
+					</div>
+					<button class="delete-burger btn btn-danger col-sm-4" data-id="{{this.id}}">
+						Trash it!
+					</button>
+				</div>
+			</div>
+		{{/if}}
 </li>
 
