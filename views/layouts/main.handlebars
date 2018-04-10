@@ -21,6 +21,7 @@
 	// Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
   $(".change-devour").on("click", function(event) {
+    event.preventDefault();
     var id = $(this).data("id");
     var newDevour = $(this).data("newdevour");
 
@@ -48,18 +49,36 @@ $(function() {
     var newBurger = {
       burger_name: $("#bg").val().trim()
     };
-
+    console.log("this is burger", $("#bg").val().trim())
+    if ($("#bg").val().trim() === "") {    
     // Send the POST request.
-    $.ajax("/api/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(
-      function() {
-        console.log("created burger");
-        // Reload the page to get the updated list
-        location.reload();
+    console.log("empty name")
+      var newBurger = {
+        burger_name: "Puff of air"
       }
-    );
+        $.ajax("/api/burgers", {
+          type: "POST",
+          data: newBurger
+        }).then(
+          function() {
+            console.log("created burger");
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+      } else {
+        console.log("stuff inside")
+        $.ajax("/api/burgers", {
+          type: "POST",
+          data: newBurger
+        }).then(
+          function() {
+            console.log("created burger");
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+      }
   });
 
   $(".delete-burger").on("click", function(event) {

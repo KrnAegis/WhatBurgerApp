@@ -4,8 +4,8 @@
 <div class="container">
   <div class="row">
     <div id="list" class="col-sm-4">
-      <h2>Ready to eat!</h2>
-        <ol>
+      <h2 class="py-2">Ready to eat!</h2>
+        <ol class="px-2">
           {{#each burgers}}
             {{#unless devoured}}
               {{>burgers/devour-block devour=true}}
@@ -14,8 +14,7 @@
         </ol>
     </div>
     <div id="list" class="col-sm-4">
-      <h2>Add your burger!</h2>
-      <br></br>
+      <h2 class="py-2">Add your burger!</h2>
           <form class="create-form">
             <div class="form-group">
               <textarea type="text" id="bg" name="name" placeholder="What do you want in your burger?"></textarea>
@@ -24,8 +23,8 @@
           </form>
     </div>
     <div id="list" class="col-sm-4">
-       <h2>Devoured!</h2>
-        <ol>
+       <h2 class="py-2">Devoured!</h2>
+        <ol class="px-2">
           {{#each burgers}}
             {{#if devoured}}
               {{>burgers/devour-block devour=false}}
@@ -36,5 +35,5 @@
   </div>
 </div>
 <div class="card bg-dark text-black fixed-bottom">
-    <h5 class="mx-auto">Copyright© 2018 Hyung</h5>
+    <h5 class="footer mx-auto">Copyright© 2018 Hyung</h5>
 </div>
